@@ -8,7 +8,6 @@ spec:
     matchLabels:
       kubearmor.io/hostname: "<node-name>"
   file:
-    severity: 7
     matchDirectories:
     - dir: /tmp/
       recursive: true
