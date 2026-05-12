@@ -3,16 +3,19 @@ kind: KubeArmorHostPolicy
 metadata:
   name: detect-file-creation
 spec:
-  message: "Alert: File Creation Tools Used"
+  message: "Alert: File Created in Suspicious Location"
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: "<node-name>"
-  process:
-    matchPaths:
-    - path: /usr/bin/touch
-    - path: /usr/bin/cp
-    - path: /usr/bin/mv
-    - path: /usr/bin/tee
-    - path: /usr/bin/dd
-    - path: /usr/bin/xxd
+  file:
+    severity: 7
+    matchDirectories:
+    - dir: /tmp/
+      recursive: true
+    - dir: /var/tmp/
+      recursive: true
+    - dir: /etc/cron.d/
+      recursive: true
+    - dir: /etc/systemd/system/
+      recursive: true
     action: Audit
