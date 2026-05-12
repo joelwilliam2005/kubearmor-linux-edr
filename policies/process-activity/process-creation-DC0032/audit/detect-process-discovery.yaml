@@ -10,6 +10,4 @@ spec:
   process:
     matchPaths:
     - path: /usr/bin/ps
-    - path: /usr/bin/top
-    - path: /usr/bin/htop
     action: Audit
