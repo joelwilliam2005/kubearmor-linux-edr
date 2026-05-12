@@ -1,0 +1,13 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-dns-queries
+spec:
+  message: "Alert: Suspicious Network Activity - DNS Queries Detected"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "<node-name>"
+  process:
+    matchPaths:
+    - path: /usr/lib/systemd/systemd-resolved
+    action: Audit
