@@ -1,9 +1,9 @@
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorHostPolicy
 metadata:
-  name: detect-sensitive-file-access
+  name: detect-file-operation-in-sensitive-directory
 spec:
-  message: "Alert: Sensitive File Opened - possible data access"
+  message: "Alert: File operation detected in sensitive directory"
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: "<node-name>"
@@ -12,7 +12,13 @@ spec:
     - path: /etc/shadow
     - path: /etc/passwd
     - path: /etc/sudoers
+    - path: /etc/group
     - path: /root/.ssh/id_rsa
     - path: /root/.ssh/authorized_keys
-    - path: /etc/systemd/system 
+    - path: /root/.bash_history
+    matchDirectories:
+    - dir: /etc/cron.d/
+      recursive: true
+    - dir: /etc/systemd/system/
+      recursive: true
     action: Audit
