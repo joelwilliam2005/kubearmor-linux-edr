@@ -1,0 +1,28 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-file-deletion
+spec:
+  message: "Alert: File Deleted in Sensitive Location"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "<node-name>"
+  file:
+    matchDirectories:
+    - path: /root/.ssh/authorized_keys
+    - path: /root/.ssh/id_rsa
+    - path: /root/.bash_history
+    - path: /home/*/.bash_history
+    - path: /etc/passwd
+    - path: /etc/shadow
+    - path: /etc/group
+    - path: /etc/sudoers
+    - dir: /etc/cron.d/
+      recursive: true
+    - dir: /etc/systemd/system/
+      recursive: true
+    - dir: /var/log/
+      recursive: true
+    - dir: /var/log/journal/
+      recursive: true
+    action: Audit
