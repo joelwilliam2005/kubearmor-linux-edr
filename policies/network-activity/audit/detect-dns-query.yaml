@@ -1,7 +1,7 @@
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorHostPolicy
 metadata:
-  name: detect-dns-queries
+  name: detect-dns-query
 spec:
   message: "Alert: Suspicious Network Activity - DNS Queries Detected"
   nodeSelector:
