@@ -1,0 +1,13 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-compiler-execution
+spec:
+  message: "Alert: Suspicious Process Created - Compiler Execution"
+  process:
+    severity: 8
+    matchDirectories:
+    - dir: /usr/lib/go/
+      recursive: true
+    - dir: /usr/lib/gcc/
+      recursive: true
