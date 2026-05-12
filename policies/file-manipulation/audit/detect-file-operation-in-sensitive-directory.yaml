@@ -6,7 +6,7 @@ spec:
   message: "Alert: File operation detected in sensitive directory"
   nodeSelector:
     matchLabels:
-      kubearmor.io/hostname: "<node-name>"
+      kubearmor.io/hostname: "*"
   file:
     matchPaths:
     - path: /etc/shadow

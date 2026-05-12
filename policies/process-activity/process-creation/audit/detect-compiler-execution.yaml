@@ -4,6 +4,9 @@ metadata:
   name: detect-compiler-execution
 spec:
   message: "Alert: Suspicious Process Created - Compiler Execution"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
   process:
     severity: 8
     matchDirectories:

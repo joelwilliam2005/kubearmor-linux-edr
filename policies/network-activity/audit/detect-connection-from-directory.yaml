@@ -6,7 +6,7 @@ spec:
   message: "Alert: Suspicious Network Activity - Connection from suspicious directory"
   nodeSelector:
     matchLabels:
-      kubearmor.io/hostname: "<node-name>"
+      kubearmor.io/hostname: "*"
   process:
     matchDirectories:
     - dir: /tmp/

@@ -6,7 +6,7 @@ spec:
   message: "Alert: Suspicious Process Created - Shell Execution"
   nodeSelector:
     matchLabels:
-      kubearmor.io/hostname: "<node-name>"
+      kubearmor.io/hostname: "*"
   process:
     matchPaths:
     - path: /usr/bin/bash

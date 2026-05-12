@@ -6,7 +6,7 @@ spec:
   message: "Alert: Suspicious Process Created - File/Directory Discovery"
   nodeSelector:
     matchLabels:
-      kubearmor.io/hostname: "<node-name>"
+      kubearmor.io/hostname: "*"
   process:
     matchPaths:
     - path: /usr/bin/find

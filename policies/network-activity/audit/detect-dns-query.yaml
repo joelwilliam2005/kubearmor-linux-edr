@@ -6,7 +6,7 @@ spec:
   message: "Alert: Suspicious Network Activity - DNS Queries Detected"
   nodeSelector:
     matchLabels:
-      kubearmor.io/hostname: "<node-name>"
+      kubearmor.io/hostname: "*"
   process:
     matchPaths:
     - path: /usr/lib/systemd/systemd-resolved
