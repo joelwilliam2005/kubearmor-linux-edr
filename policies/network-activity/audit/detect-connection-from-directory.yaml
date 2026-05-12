@@ -11,8 +11,6 @@ spec:
     matchDirectories:
     - dir: /tmp/
       recursive: true
-    - dir: /home/
-      recursive: true
     - dir: /var/tmp/
       recursive: true
   network:
