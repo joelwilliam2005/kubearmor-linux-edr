@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-service-discovery
+spec:
+  message: "Alert: Suspicious Process Created - Service Discovery"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "<node-name>"
+  process:
+    matchPaths:
+    - path: /usr/bin/systemctl
+    - path: /usr/bin/busctl
+    - path: /usr/bin/journalctl
+    action: Audit

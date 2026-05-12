@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-pkg-manager-usage
+spec:
+  message: "Alert: Suspicious Process Created - Package Manager Usage"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "<node-name>"
+  process:
+    matchPaths:
+    - path: /usr/bin/apk
+    - path: /usr/bin/dpkg
+    - path: /usr/bin/dpkg-query
+    action: Audit

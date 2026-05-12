@@ -1,0 +1,14 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-network-discovery
+spec:
+  message: "Alert: Suspicious Process Created - Network Discovery"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "<node-name>"
+  process:
+    matchPaths:
+    - path: /usr/bin/ss
+    - path: /usr/bin/ip
+    action: Audit

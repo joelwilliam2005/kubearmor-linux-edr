@@ -1,0 +1,16 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-shell-execution
+spec:
+  message: "Alert: Suspicious Process Created - Shell Execution"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "<node-name>"
+  process:
+    matchPaths:
+    - path: /usr/bin/bash
+    - path: /usr/bin/dash
+    - path: /usr/bin/python3
+    - path: /usr/bin/env
+    action: Audit

@@ -1,0 +1,19 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-system-info-discovery
+spec:
+  message: "Alert: Suspicious Process Created - System Information discovery"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "<node-name>"
+  process:
+    matchPaths:
+    - path: /usr/bin/uname   
+    - path: /usr/bin/hostname
+    - path: /usr/bin/uptime
+    - path: /usr/bin/dmesg
+    - path: /usr/bin/mount
+    - path: /usr/bin/df
+    - path: /usr/bin/sysctl
+    action: Audit

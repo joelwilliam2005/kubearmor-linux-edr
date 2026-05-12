@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-download-tools
+spec:
+  message: "Alert: Suspicious Process Created - Download Tools Used"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "<node-name>"
+  process:
+    matchPaths:
+    - path: /usr/bin/dd
+    - path: /usr/bin/xxd
+    - path: /usr/bin/mkdir
+    action: Audit
