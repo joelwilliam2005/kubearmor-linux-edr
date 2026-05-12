@@ -11,4 +11,5 @@ spec:
     matchPaths:
     - path: /usr/bin/gpg
     - path: /usr/bin/gpg-agent
+    - path: /usr/bin/gpg-connect-agent
     action: Audit
