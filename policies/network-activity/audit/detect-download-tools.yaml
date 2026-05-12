@@ -3,7 +3,7 @@ kind: KubeArmorHostPolicy
 metadata:
   name: detect-download-tools
 spec:
-  message: "Alert: Suspicious Process Created - Download Tools Used"
+  message: "Alert: Suspicious Network Activity - Download Tools Used"
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: "<node-name>"

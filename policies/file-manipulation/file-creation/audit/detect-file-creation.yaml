@@ -1,15 +1,18 @@
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorHostPolicy
 metadata:
-  name: detect-download-tools
+  name: detect-file-creation
 spec:
-  message: "Alert: Suspicious Process Created - Download Tools Used"
+  message: "Alert: File Creation Tools Used"
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: "<node-name>"
   process:
     matchPaths:
+    - path: /usr/bin/touch
+    - path: /usr/bin/cp
+    - path: /usr/bin/mv
+    - path: /usr/bin/tee
     - path: /usr/bin/dd
     - path: /usr/bin/xxd
-    - path: /usr/bin/mkdir
     action: Audit
