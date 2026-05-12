@@ -10,4 +10,7 @@ spec:
   process:
     matchPaths:
     - path: /usr/lib/systemd/systemd-resolved
+  network:
+    matchProtocols:
+    - protocol: udp
     action: Audit
