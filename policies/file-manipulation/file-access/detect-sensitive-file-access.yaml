@@ -1,0 +1,17 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-sensitive-file-access
+spec:
+  message: "Alert: Sensitive File Opened - possible data access"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "<node-name>"
+  file:
+    matchPaths:
+    - path: /etc/shadow
+    - path: /etc/passwd
+    - path: /etc/sudoers
+    - path: /root/.ssh/id_rsa
+    - path: /root/.ssh/authorized_keys
+    action: Audit
