@@ -8,7 +8,6 @@ spec:
     matchLabels:
       kubearmor.io/hostname: "<node-name>"
   file:
-    severity: 8
     matchPaths:
     - path: /root/.ssh/authorized_keys
     - path: /root/.ssh/id_rsa
@@ -23,5 +22,7 @@ spec:
     - dir: /etc/systemd/system/
       recursive: true
     - dir: /var/log/
+      recursive: true
+    - dir: /home/
       recursive: true
     action: Audit
