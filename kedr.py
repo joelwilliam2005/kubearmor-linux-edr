@@ -19,8 +19,9 @@ def parse_event(lines):
 def print_event(event):
     print(
         f"[{event.get('Time', '')}] "
-        f"[{event.get('Message', '-')}] "
-        f"{event.get('Action', '')} | \n"
+        f"[{event.get('Message', '-')}]"
+        f"[{event.get('Action', '')}]"
+        f"\n"
         f"{event.get('ParentProcessName', '')} "
         f"-> {event.get('ProcessName', '')}"
     )
