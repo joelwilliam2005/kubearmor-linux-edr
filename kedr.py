@@ -1,43 +1,47 @@
-#!/usr/bin/env python3
-"""
-kalog.py - KubeArmor Simple Log Formatter
-Usage: sudo karmor logs --gRPC=localhost:32767 --logFilter=policy | python3 kalog.py
-"""
-
 import sys
 
-def parse_block(lines):
-    evt = {}
+
+def parse_event(lines):
+    event = {}
+
     for line in lines:
-        if ": " in line:
-            key, _, val = line.partition(": ")
-            evt[key.strip()] = val.strip()
-    return evt
 
-def print_event(evt):
-    time    = evt.get("UpdatedTime", "")[:19].replace("T", " ")
-    policy  = evt.get("PolicyName", "-")
-    message = evt.get("Message", "-")
-    parent  = evt.get("ParentProcessName", "-")
-    process = evt.get("ProcessName", "-")
-    action  = evt.get("Action", "LOG")
-    result  = evt.get("Result", "-")
+        if line.startswith("== Alert /"):
+            event["Time"] = line.split("/")[1].split("==")[0].strip()
 
-    print(f"[{time}] {action:<6} | {policy:<40} | {parent} -> {process} | {result} | {message}")
+        elif ": " in line:
+            key, value = line.split(": ", 1)
+            event[key] = value
 
-buffer = []
+    return event
+
+
+def print_event(event):
+    print(
+        f"[{event.get('Time', '')}] "
+        f"{event.get('Action', '')} | "
+        f"{event.get('ParentProcessName', '')} "
+        f"-> {event.get('ProcessName', '')}"
+    )
+
+
+block = []
+
 for line in sys.stdin:
-    line = line.rstrip()
-    if line.startswith("== "):
-        if buffer:
-            evt = parse_block(buffer)
-            if evt:
-                print_event(evt)
-        buffer = []
-    else:
-        buffer.append(line)
+    line = line.strip()
 
-if buffer:
-    evt = parse_block(buffer)
-    if evt:
-        print_event(evt)
+    if line.startswith("== Alert /"):
+
+        if block:
+            evt = parse_event(block)
+            print_event(evt)
+
+        block = [line]
+
+    else:
+        block.append(line)
+
+
+if block:
+    evt = parse_event(block)
+    print_event(evt)

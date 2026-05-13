@@ -1,6 +1,6 @@
 cat << 'EOF' | sudo tee /usr/local/bin/kedr
 #!/bin/bash
-sudo karmor logs --gRPC=localhost:32767 --logFilter=policy | python3 /home/joelw/Documents/kubearmor-linux-edr/kedr.py
+sudo karmor logs --gRPC=localhost:32767 --logFilter=policy | python3 /home/joelw/kubearmor-linux-edr/kedr.py
 EOF
 
 sudo chmod +x /usr/local/bin/kedr
