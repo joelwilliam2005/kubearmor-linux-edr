@@ -8,17 +8,13 @@ spec:
     matchLabels:
       kubearmor.io/hostname: "*"
   file:
-    matchPaths:
-    - path: /etc/shadow
-    - path: /etc/passwd
-    - path: /etc/sudoers
-    - path: /etc/group
-    - path: /root/.ssh/id_rsa
-    - path: /root/.ssh/authorized_keys
-    - path: /root/.bash_history
     matchDirectories:
     - dir: /etc/cron.d/
       recursive: true
     - dir: /etc/systemd/system/
+      recursive: true
+    - dir: /tmp/
+      recursive: true
+    - dir: /var/tmp/
       recursive: true
     action: Audit

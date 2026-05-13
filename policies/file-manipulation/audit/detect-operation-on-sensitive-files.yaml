@@ -1,0 +1,19 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-operation-on-sensitive-files
+spec:
+  message: "Alert: File operation detected on sensitive files"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  file:
+    matchPaths:
+    - path: /etc/shadow
+    - path: /etc/passwd
+    - path: /etc/sudoers
+    - path: /etc/group
+    - path: /root/.ssh/id_rsa
+    - path: /root/.ssh/authorized_keys
+    - path: /root/.bash_history
+    action: Audit
