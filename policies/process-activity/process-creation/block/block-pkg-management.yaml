@@ -1,0 +1,16 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: block-pkg-management
+spec:
+  message: "Alert: Package Management Blocked"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  process:
+    matchPaths:
+    - path: /usr/bin/apt
+    - path: /usr/bin/apt-get
+    - path: /usr/bin/snap
+    - path: /usr/bin/dpkg
+    action: Block
