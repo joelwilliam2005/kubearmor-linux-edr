@@ -1,0 +1,16 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: block-process-and-service-termination-tools
+spec:
+  message: "Alert: Process or Service Termination Tool Blocked"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  process:
+    matchPaths:
+    - path: /usr/bin/kill
+    - path: /usr/bin/pkill
+    - path: /usr/bin/killall
+    - path: /usr/sbin/rfkill
+    action: Block
