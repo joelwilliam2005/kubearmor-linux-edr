@@ -20,6 +20,25 @@ def parse_event(lines):
 def print_event(event):
     global log_number
     prefix = f"[#{log_number}] "
+    info = ""
+    syscall = ""
+    flags = ""
+
+    if event.get("Operation", "") == "File":
+        n = len(event.get("EventData", ""))
+        
+        event_data = (event.get("EventData", "")[4 : n - 1]).split()
+        
+        for item in event_data:
+            key, value = item.split(":", 1)
+            if key == "Syscall":
+                syscall = "Syscall: " + value + "  "
+            if key == "Flags":
+                flags = "Flags: " + value.split("|")[0] + "  "
+
+        info = syscall + flags
+
+    
     print()
     print(
         prefix + f"{event.get('Time', '')[11:19]} "
@@ -30,9 +49,10 @@ def print_event(event):
         + " " * len(prefix)
         + f"{os.path.basename(event.get('ParentProcessName', ''))} "
         f"─▶ "
-        f"{os.path.basename(event.get('ProcessName', '')):<70}"
-        f"[{event.get('EventData', '')[2::]}]"
+        f"{os.path.basename(event.get('ProcessName', ''))}"
+        + ("\n" + " " * len(prefix) + info if info else "")
     )
+
     log_number += 1
 
 
