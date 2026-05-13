@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: block-download-tools
+spec:
+  message: "Alert: Download Tools Blocked"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  process:
+    matchPaths:
+    - path: /usr/bin/curl
+    - path: /usr/bin/wget
+    - path: /usr/bin/git
+    action: Block
