@@ -1,9 +1,9 @@
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorHostPolicy
 metadata:
-  name: detect-network-discovery
+  name: detect-network-discovery-tools
 spec:
-  message: "Alert: Suspicious Process Created - Network Discovery"
+  message: "Alert: Network Discovery Tools Executed"
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: "*"
