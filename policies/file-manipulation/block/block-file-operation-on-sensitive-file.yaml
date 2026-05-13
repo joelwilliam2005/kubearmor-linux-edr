@@ -1,0 +1,14 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: block-operation-on-sensitive-files
+spec:
+  message: "Alert: File Operation Blocked on Sensitive File"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  file:
+    matchPaths:
+      - path: /etc/shadow
+  action:
+    Block

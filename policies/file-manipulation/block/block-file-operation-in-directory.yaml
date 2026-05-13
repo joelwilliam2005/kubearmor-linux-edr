@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: block-file-operation-in-directory
+spec:
+  message: "Alert: File Operation Blocked in Directory"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  file:
+    matchDirectories:
+    - dir: /tmp/
+      recursive: true
+  action:
+    Block
