@@ -1,4 +1,5 @@
 import sys
+import os
 
 
 def parse_event(lines):
@@ -17,32 +18,33 @@ def parse_event(lines):
 
 
 def print_event(event):
+    global log_number
+    prefix = f"[#{log_number}] "
+    print()
     print(
-        f"[{event.get('Time', '')}] "
-        f"[{event.get('Message', '-')}] "
+        prefix + f"{event.get('Time', '')[11:19]} "
+        f"{event.get('Message', '-')} "
         f"[{event.get('Action', '')}]"
         f"\n"
-        f"{event.get('ParentProcessName', '')} "
-        f"-> {event.get('ProcessName', '')}"
+        + " " * len(prefix)
+        + f"{os.path.basename(event.get('ParentProcessName', ''))} "
+        f"─▶ "
+        f"{os.path.basename(event.get('ProcessName', ''))}"
     )
+    log_number += 1
 
 
 block = []
+log_number = 1
 
 for line in sys.stdin:
-    line = line.strip()
+    line = line.rstrip()
+    block.append(line)
 
-    if line.startswith("== Alert /"):
-
-        if block:
-            evt = parse_event(block)
-            print_event(evt)
-
-        block = [line]
-
-    else:
-        block.append(line)
-
+    if line.startswith("UID:"):
+        evt = parse_event(block)
+        print_event(evt)
+        block = []
 
 if block:
     evt = parse_event(block)
