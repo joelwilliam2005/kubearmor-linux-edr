@@ -1,9 +1,9 @@
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorHostPolicy
 metadata:
-  name: block-download-tools
+  name: block-download-and-transfer-tools
 spec:
-  message: "Alert: Download Tools Blocked"
+  message: "Alert: Download and Transfer Tools Blocked"
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: "*"
@@ -12,4 +12,9 @@ spec:
     - path: /usr/bin/curl
     - path: /usr/bin/wget
     - path: /usr/bin/git
+    - path: /usr/bin/scp
+    - path: /usr/bin/sftp
+    - path: /usr/bin/rsync
+    - path: /usr/bin/ftp
+    - path: /usr/bin/tftp
     action: Block
