@@ -4,3 +4,6 @@ sudo karmor logs --gRPC=localhost:32767 --logFilter=policy | python3 /home/joelw
 EOF
 
 sudo chmod +x /usr/local/bin/kedr
+
+karmor vm policy delete policy1.yaml 
+sudo karmor logs --gRPC=localhost:32767 --logFilter=policy
