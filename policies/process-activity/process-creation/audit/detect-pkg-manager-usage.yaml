@@ -9,7 +9,8 @@ spec:
       kubearmor.io/hostname: "*"
   process:
     matchPaths:
-    - path: /usr/bin/apk
+    - path: /usr/bin/apt
+    - path: /usr/bin/apt-get
+    - path: /usr/bin/snap
     - path: /usr/bin/dpkg
-    - path: /usr/bin/dpkg-query
     action: Audit
