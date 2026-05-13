@@ -9,8 +9,9 @@ spec:
       kubearmor.io/hostname: "*"
   process:
     matchPaths:
+    - path: /bin/sh
+    - path: /bin/bash
+    - path: /bin/dash
     - path: /usr/bin/bash
     - path: /usr/bin/dash
-    - path: /usr/bin/python3
-    - path: /usr/bin/env
     action: Audit
