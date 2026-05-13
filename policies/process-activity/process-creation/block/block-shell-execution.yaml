@@ -3,7 +3,7 @@ kind: KubeArmorHostPolicy
 metadata:
   name: detect-shell-execution
 spec:
-  message: "Alert: Suspicious Process Created - Shell Execution"
+  message: "Alert: Shell Execution Blocked"
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: "*"
