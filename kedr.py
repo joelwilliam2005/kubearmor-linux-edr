@@ -23,13 +23,15 @@ def print_event(event):
     print()
     print(
         prefix + f"{event.get('Time', '')[11:19]} "
-        f"{event.get('Message', '-')} "
+        f"{event.get('Message', '-'):<70} "
         f"[{event.get('Action', '')}]"
+        f"[{event.get('Result', '')}]"
         f"\n"
         + " " * len(prefix)
         + f"{os.path.basename(event.get('ParentProcessName', ''))} "
         f"─▶ "
-        f"{os.path.basename(event.get('ProcessName', ''))}"
+        f"{os.path.basename(event.get('ProcessName', '')):<70}"
+        f"[{event.get('EventData', '')[2::]}]"
     )
     log_number += 1
 
