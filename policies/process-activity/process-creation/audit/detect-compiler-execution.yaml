@@ -8,9 +8,11 @@ spec:
     matchLabels:
       kubearmor.io/hostname: "*"
   process:
-    matchDirectories:
-    - dir: /usr/lib/go/
-      recursive: true
-    - dir: /usr/lib/gcc/
-      recursive: true
-    action: Audit
+    matchPaths:
+      - path: /usr/bin/cc
+      - path: /usr/bin/clang
+      - path: /usr/bin/gcc
+      - path: /usr/bin/g++
+      - path: /usr/bin/go
+      - path: /usr/bin/rustc
+    action: Block
