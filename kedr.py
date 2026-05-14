@@ -24,7 +24,7 @@ def print_event(event):
     syscall = ""
     flags = ""
 
-    if event.get("Operation", "") == "File":
+    if event.get("Operation", "") in ["File", "Network"]:
         n = len(event.get("EventData", ""))
         
         event_data = (event.get("EventData", "")[4 : n - 1]).split()
@@ -34,7 +34,10 @@ def print_event(event):
             if key == "Syscall":
                 syscall = "Syscall: " + value + "  "
             if key == "Flags":
-                flags = "Flags: " + value.split("|")[0] + "  "
+                if value:
+                    flags = "Flags: " + value.split("|")[0] + "  "
+                else:
+                    flags = ""
 
         info = syscall + flags
 
@@ -50,7 +53,13 @@ def print_event(event):
         + f"{os.path.basename(event.get('ParentProcessName', ''))} "
         f"─▶ "
         f"{os.path.basename(event.get('ProcessName', ''))}"
-        + ("\n" + " " * len(prefix) + info if info else "")
+        f"\n"
+        + " " * len(prefix)
+        +
+        f"Resource: {event.get('Resource', '')}"
+        f"\n"
+        + " " * len(prefix)
+        + (f"Source: {event.get('Source', '')}"+ "\n" + " " * len(prefix) + info if info else "")
     )
 
     log_number += 1
