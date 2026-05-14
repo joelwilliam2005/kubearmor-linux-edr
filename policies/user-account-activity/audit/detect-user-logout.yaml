@@ -1,0 +1,13 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-user-logout
+spec:
+  message: "Alert: User Logout Process detected"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  file:
+    matchPaths:
+      - path: /home/joelw/.bash_logout
+    action: Audit
