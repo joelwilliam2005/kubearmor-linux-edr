@@ -1,0 +1,18 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-tcp-connection-from-directory
+spec:
+  message: "Alert: TCP Connection from suspicious directory"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  process:
+    matchDirectories:
+    - dir: /var/tmp/
+      recursive: true
+    action: Audit
+  network:
+    matchProtocols:
+    - protocol: tcp
+    action: Audit
