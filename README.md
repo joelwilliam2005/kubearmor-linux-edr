@@ -1,6 +1,6 @@
 KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 
-| Telemetry Category | Sub-Category | KubeArmor Support |
+| Telemetry Feature Category | Sub-Category | KubeArmor Support Status |
 |---|---|---|
 | [Process Activity](./policies/process-activity/README.md)| Process Creation | Full |
 |  | Process Termination | Partial |
@@ -12,8 +12,9 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 |  | User Logoff | ⏳ Pending |
 |  | Logon Failed | ⏳ Pending |
 | Script Activity | Script Content | ⏳ Pending |
-| [Network Activity](./policies/network-activity/README.md) | Network Connection | ⏳ Pending |
+| [Network Activity](./policies/network-activity/README.md) | Network Connection | Full |
 |  | Network Socket Listen | ⏳ Pending |
+|  | DNS Query | No | 
 | Scheduled Task Activity | Scheduled Task | ⏳ Pending |
 | [User Account Activity](./policies/user-account-activity/README.md) | User Account Created | ⏳ Pending |
 |  | User Account Modified | ⏳ Pending |
