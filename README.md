@@ -14,6 +14,7 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 | Script Activity | Script Content | ⏳ Pending |
 | [Network Activity](./policies/network-activity/README.md) | Network Connection | Full |
 |  | Network Socket Listen | ⏳ Pending |
+|  | DNS Query | ⏳ Pending | 
 | Scheduled Task Activity | Scheduled Task | ⏳ Pending |
 | [User Account Activity](./policies/user-account-activity/README.md) | User Account Created | ⏳ Pending |
 |  | User Account Modified | ⏳ Pending |
