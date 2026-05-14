@@ -7,7 +7,7 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 | [File Manipulation](./policies/file-manipulation/README.md) | File Creation | Full |
 |  | File Modification | Full |
 |  | File Deletion | Full |
-|  | File Rename | Full |
+|  | File Rename | Partial |
 | User Activity | User Logon | ⏳ Pending |
 |  | User Logoff | ⏳ Pending |
 |  | Logon Failed | ⏳ Pending |
