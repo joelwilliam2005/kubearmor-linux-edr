@@ -2,7 +2,7 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 
 | Telemetry Category | Sub-Category | KubeArmor Support |
 |---|---|---|
-| Process Activity | Process Creation | Full |
+| [Process Activity](./policies/process-activity/README.md)| Process Creation | Full |
 |  | Process Termination | Partial |
 | File Manipulation | File Creation | Full |
 |  | File Modification | Full |
