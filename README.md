@@ -4,7 +4,7 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 |---|---|---|
 | [Process Activity](./policies/process-activity/README.md)| Process Creation | Full |
 |  | Process Termination | Partial |
-| File Manipulation | File Creation | Full |
+| [File Manipulation](./policies/file-manipulation/README.md) | File Creation | Full |
 |  | File Modification | Full |
 |  | File Deletion | Full |
 |  | File Rename | Full |
@@ -12,10 +12,10 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 |  | User Logoff | ⏳ Pending |
 |  | Logon Failed | ⏳ Pending |
 | Script Activity | Script Content | ⏳ Pending |
-| Network Activity | Network Connection | ⏳ Pending |
+| [Network Activity](./policies/network-activity/README.md) | Network Connection | ⏳ Pending |
 |  | Network Socket Listen | ⏳ Pending |
 | Scheduled Task Activity | Scheduled Task | ⏳ Pending |
-| User Account Activity | User Account Created | ⏳ Pending |
+| [User Account Activity](./policies/user-account-activity/README.md) | User Account Created | ⏳ Pending |
 |  | User Account Modified | ⏳ Pending |
 |  | User Account Deleted | ⏳ Pending |
 | Driver/Module Activity | Driver Load | ⏳ Pending |
