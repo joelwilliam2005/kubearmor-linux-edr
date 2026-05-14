@@ -1,0 +1,14 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-user-sessions-activity
+spec:
+  message: "Alert: User Session Activity detected"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  file:
+    matchDirectories:
+    - dir: /run/systemd/sessions/
+      recursive: true
+    action: Audit
