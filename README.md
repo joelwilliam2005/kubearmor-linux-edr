@@ -11,7 +11,7 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 | User Activity | User Logon | Partial |
 |  | User Logoff | Partial |
 |  | Logon Failed | No |
-| Script Activity | Script Content | ⏳ Pending |
+| Script Activity | Script Content | Partial |
 | [Network Activity](./policies/network-activity/README.md) | Network Connection | Full |
 |  | Network Socket Listen | ⏳ Pending |
 |  | DNS Query | No | 
