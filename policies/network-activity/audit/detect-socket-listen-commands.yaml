@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-socket-listen-commands
+spec:
+  message: "Alert: Socket Listen Commands Detected"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  process:
+    matchPaths:
+    - path: /usr/bin/nc.openbsd 
+    - path: /usr/bin/nc.traditional
+    - path: /usr/bin/socat
+    action: Audit
