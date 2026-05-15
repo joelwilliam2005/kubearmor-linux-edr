@@ -1,0 +1,14 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: block-script-exec-in-directory
+spec:
+  message: "Alert: Script Execution in Directory"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  process:
+    matchDirectories:
+    - dir: /var/tmp/
+      recursive: true
+    action: Block
