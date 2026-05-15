@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-dns-query-tools
+spec:
+  message: "Alert: DNS Query Tools Detected"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  process:
+    matchPaths:
+      - path: /usr/bin/dig
+      - path: /usr/bin/nslookup
+      - path: /usr/bin/host
+    action: Audit
