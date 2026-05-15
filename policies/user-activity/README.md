@@ -1,1 +1,1 @@
-User Account Activity
+User Activity
