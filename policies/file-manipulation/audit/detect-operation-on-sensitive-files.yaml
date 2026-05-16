@@ -16,4 +16,5 @@ spec:
     - path: /root/.ssh/id_rsa
     - path: /root/.ssh/authorized_keys
     - path: /root/.bash_history
+    - path: /root/.zsh_history
     action: Audit
