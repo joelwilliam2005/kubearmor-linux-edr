@@ -1,0 +1,16 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: block-kubearmor-binary-tamper
+spec:
+  message: "Alert: KubeArmor binary tamper blocked"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  file:
+    matchDirectories:
+    - dir: /opt/kubearmor/
+      recursive: true
+    matchPaths:
+    - path: /usr/local/bin/kubearmor
+    action: Block
