@@ -8,3 +8,5 @@ KubeArmor can detect/block the execution of Download and Transfer tools, and als
 
 - Block: `block-download-and-transfer-tools.yaml`
 - Block: `block-file-operation-in-sensitive-directory.yaml`
+
+<img width="1866" height="383" alt="exec-curl-to-hidden-url-block-output" src="https://github.com/user-attachments/assets/3e319925-05dd-4614-9095-a8e1be041505" />
