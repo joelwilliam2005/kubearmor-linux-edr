@@ -11,8 +11,6 @@ spec:
     matchPaths:
     - path: /usr/lib/systemd/system/kubearmor.service
     matchDirectories:
-    - dir: /opt/kubearmor/
-      recursive: true
     - dir: /etc/systemd/system/multi-user.target.wants/
       recursive: true
     action: Block
