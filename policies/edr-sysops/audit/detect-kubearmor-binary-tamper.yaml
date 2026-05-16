@@ -1,7 +1,7 @@
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorHostPolicy
 metadata:
-  name: block-kubearmor-binary-tamper
+  name: detect-kubearmor-binary-tamper
 spec:
   message: "Alert: KubeArmor binary tamper detected"
   nodeSelector:
@@ -13,4 +13,4 @@ spec:
       recursive: true
     matchPaths:
     - path: /usr/local/bin/kubearmor
-    action: Block
+    action: Audit
