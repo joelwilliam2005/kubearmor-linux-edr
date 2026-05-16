@@ -20,7 +20,7 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 |  | User Account Modified | Partial |
 |  | User Account Deleted | Partial |
 | [Driver/Module Activity](./policies/driver-module-activity/README.md) | Driver Load | Partial |
-|  | Image Load | ⏳ Pending |
+|  | Image Load | Partial |
 | Access Activity | Raw Access Read | ⏳ Pending |
 |  | Process Access | ⏳ Pending |
 | Process Tampering Activity | Process Tampering | ⏳ Pending |
