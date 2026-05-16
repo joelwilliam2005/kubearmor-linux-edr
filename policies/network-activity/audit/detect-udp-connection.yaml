@@ -1,17 +1,12 @@
 apiVersion: security.kubearmor.com/v1
 kind: KubeArmorHostPolicy
 metadata:
-  name: detect-udp-connection-from-directory
+  name: detect-udp-connection
 spec:
-  message: "Alert: UDP Connection from suspicious directory"
+  message: "Alert: UDP Connection"
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: "*"
-  process:
-    matchDirectories:
-    - dir: /var/tmp/
-      recursive: true
-    action: Audit
   network:
     matchProtocols:
     - protocol: udp
