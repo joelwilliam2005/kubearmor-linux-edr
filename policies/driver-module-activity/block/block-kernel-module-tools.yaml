@@ -9,10 +9,7 @@ spec:
       kubearmor.io/hostname: "*"
   process:
     matchPaths:
-    - path: /usr/sbin/insmod
-    - path: /usr/sbin/modprobe
-    - path: /usr/sbin/rmmod
-    - path: /usr/sbin/modinfo
+    - path: /usr/bin/kmod
     action: Block
 
     
