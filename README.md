@@ -8,7 +8,7 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 |  | File Modification | Full |
 |  | File Deletion | Full |
 |  | File Rename | Partial |
-| User Activity | User Logon | Partial |
+| [User Activity](./policies/user-activity/README.md) | User Logon | Partial |
 |  | User Logoff | Partial |
 |  | Logon Failed | No |
 | Script Activity | Script Content | Partial |
