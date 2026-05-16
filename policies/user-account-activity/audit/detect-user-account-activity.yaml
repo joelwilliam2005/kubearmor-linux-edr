@@ -1,0 +1,19 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-user-account-activity
+spec:
+  message: "Alert: User - Account Activity Detected"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  process:
+    matchPaths:
+    - path: /usr/sbin/useradd
+    - path: /usr/sbin/usermod
+    - path: /usr/sbin/userdel
+    - path: /usr/sbin/adduser
+    - path: /usr/bin/passwd
+    - path: /usr/sbin/groupadd
+    - path: /usr/sbin/groupdel
+    action: Audit
