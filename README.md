@@ -24,9 +24,9 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 | Access Activity | Raw Access Read | ⏳ Pending |
 |  | Process Access | ⏳ Pending |
 | Process Tampering Activity | Process Tampering | ⏳ Pending |
-| Service Activity | Service Creation | ⏳ Pending |
-|  | Service Modification | ⏳ Pending |
-|  | Service Deletion | ⏳ Pending |
+| [Service Activity](./policies/service-activity/README.md) | Service Creation | Full |
+|  | Service Modification | Full |
+|  | Service Deletion | Full |
 | EDR SysOps | Agent Start | ⏳ Pending |
 |  | Agent Stop | ⏳ Pending |
 | Hash Algorithms | MD5 | ⏳ Pending |
