@@ -1,0 +1,18 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: block-kernel-module-tools
+spec:
+  message: "Alert: Kernel module tools detected"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  process:
+    matchPaths:
+    - path: /usr/sbin/insmod
+    - path: /usr/sbin/modprobe
+    - path: /usr/sbin/rmmod
+    - path: /usr/sbin/modinfo
+    action: Block
+
+    
