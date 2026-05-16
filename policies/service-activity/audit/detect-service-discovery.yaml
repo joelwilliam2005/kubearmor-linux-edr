@@ -3,13 +3,12 @@ kind: KubeArmorHostPolicy
 metadata:
   name: detect-service-discovery
 spec:
-  message: "Alert: Suspicious Process Created - Service Discovery"
+  message: "Alert: Service Discovery Commands Used"
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: "*"
   process:
     matchPaths:
-    - path: /usr/bin/systemctl
     - path: /usr/bin/busctl
     - path: /usr/bin/journalctl
     action: Audit
