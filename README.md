@@ -29,6 +29,6 @@ KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
 |  | Service Deletion | Full |
 | [EDR SysOps](./policies/edr-sysops/README.md) | Agent Start | No |
 |  | Agent Stop | Partial |
-| Hash Algorithms | MD5 | ⏳ Pending |
-|  | SHA | ⏳ Pending |
-|  | Fuzzy Hash | ⏳ Pending |
+| Hash Algorithms | MD5 | No |
+|  | SHA | No |
+|  | Fuzzy Hash | No |
