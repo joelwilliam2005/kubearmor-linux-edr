@@ -3,7 +3,7 @@ kind: KubeArmorHostPolicy
 metadata:
   name: block-kubearmor-binary-tamper
 spec:
-  message: "Alert: KubeArmor binary tamper blocked"
+  message: "Alert: KubeArmor binary tamper detected"
   nodeSelector:
     matchLabels:
       kubearmor.io/hostname: "*"
