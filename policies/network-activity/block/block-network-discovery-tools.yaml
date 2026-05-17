@@ -11,4 +11,5 @@ spec:
     matchPaths:
     - path: /usr/bin/ss
     - path: /usr/bin/ip
+    - path: /usr/bin/ping
     action: Block
