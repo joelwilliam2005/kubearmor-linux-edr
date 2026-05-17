@@ -13,4 +13,6 @@ spec:
     - path: /usr/bin/ls
     - path: /usr/bin/stat
     - path: /usr/bin/du
+    - path: /usr/bin/lsof
+    - path: /usr/bin/fuser
     action: Audit
