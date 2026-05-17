@@ -14,4 +14,5 @@ spec:
     - path: /bin/dash
     - path: /usr/bin/bash
     - path: /usr/bin/dash
+    - path: /usr/bin/python3.10
     action: Audit
