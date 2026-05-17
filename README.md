@@ -1,7 +1,7 @@
 # KEDR
 ## KubeArmor based Linux EDR (Endpoint Detection and Response) Solution
 
-Support Table -
+### Support Table -
 | Telemetry Feature Category | Sub-Category | KubeArmor Support Status |
 |---|---|---|
 | [Process Activity](./policies/process-activity/README.md)| Process Creation | Full |
@@ -34,3 +34,15 @@ Support Table -
 | Hash Algorithms | MD5 | No |
 |  | SHA | No |
 |  | Fuzzy Hash | No |
+
+### Benchmark Tests using ttp-bench
+Tested KEDR against multiple Linux attack simulations from the MITRE ATT&CK framework using [ttp-bench](https://github.com/tstromberg/ttp-bench):
+- [evade-shell-history](./ttp-bench-results/evade-shell-history.md)
+- [evade-tools-in-var-tmp](./ttp-bench-results/evade-tools-in-var-tmp-hidden.md)
+- [exec-bash-reverse-shell](./ttp-bench-results/exec-bash-reverse-shell.md)
+- [exec-curl-to-hidden-url](./ttp-bench-results/exec-curl-to-hidden-url.md)
+- [exec-linpeas](./ttp-bench-results/exec-linpeas.md)
+- [exec-netcat-listen](./ttp-bench-results/exec-netcat-listen.md)
+- [exec-python-reverse-shell](./ttp-bench-results/exec-python-reverse-shell.md)
+
+      
