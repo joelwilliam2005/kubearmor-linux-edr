@@ -9,12 +9,16 @@ spec:
       kubearmor.io/hostname: "*"
   file:
     matchDirectories:
-    - dir: /etc/cron.d/
-      recursive: true
-    - dir: /etc/systemd/system/
-      recursive: true
     - dir: /tmp/
       recursive: true
     - dir: /var/tmp/
+      recursive: true
+    - dir: /etc/cron.d/
+      recursive: true
+    - dir: /etc/cron.daily/
+      recursive: true
+    - dir: /var/spool/cron/
+      recursive: true
+    - dir: /etc/systemd/system/
       recursive: true
     action: Audit
