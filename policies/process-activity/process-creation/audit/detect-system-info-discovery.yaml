@@ -16,4 +16,6 @@ spec:
     - path: /usr/bin/mount
     - path: /usr/bin/df
     - path: /usr/bin/sysctl
+    - path: /usr/bin/env
+    - path: /usr/bin/printenv
     action: Audit
