@@ -1,5 +1,7 @@
-KubeArmor as Linux EDR (Endpoint Detection and Response) Tool
+# KEDR
+## KubeArmor based Linux EDR (Endpoint Detection and Response) Solution
 
+Support Table -
 | Telemetry Feature Category | Sub-Category | KubeArmor Support Status |
 |---|---|---|
 | [Process Activity](./policies/process-activity/README.md)| Process Creation | Full |
