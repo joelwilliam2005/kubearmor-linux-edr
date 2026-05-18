@@ -17,7 +17,7 @@
 | [Network Activity](./policies/network-activity/README.md) | Network Connection | Full |
 |  | Network Socket Listen | Partial |
 |  | DNS Query | Partial | 
-| Scheduled Task Activity | Scheduled Task | Full |
+| [Scheduled Task Activity](./policies/scheduled-task-activity/README.md) | Scheduled Task | Partial |
 | [User Account Activity](./policies/user-account-activity/README.md) | User Account Created | Partial |
 |  | User Account Modified | Partial |
 |  | User Account Deleted | Partial |
