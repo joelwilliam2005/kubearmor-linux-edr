@@ -1,6 +1,9 @@
 # KEDR
 ## KubeArmor based Linux EDR (Endpoint Detection and Response) Solution
 
+## Installation
+`curl -sfL https://raw.githubusercontent.com/joelwilliam2005/kubearmor-linux-edr/main/install.sh | sudo sh`
+
 ### Support Table -
 | Telemetry Feature Category | Sub-Category | KubeArmor Support Status |
 |---|---|---|
