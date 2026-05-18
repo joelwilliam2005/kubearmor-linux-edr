@@ -1,9 +1,6 @@
 # KEDR
 ## KubeArmor based Linux EDR (Endpoint Detection and Response) Solution
 
-## Installation
-`curl -sfL https://raw.githubusercontent.com/joelwilliam2005/kubearmor-linux-edr/main/install.sh | sudo sh`
-
 ### Support Table -
 | Telemetry Feature Category | Sub-Category | KubeArmor Support Status |
 |---|---|---|
@@ -47,4 +44,19 @@ Tested KEDR against multiple Linux attack simulations from the MITRE ATT&CK fram
 - [exec-netcat-listen](./ttp-bench-results/exec-netcat-listen.md)
 - [exec-python-reverse-shell](./ttp-bench-results/exec-python-reverse-shell.md)
 
+## Installation
+
+- Tested on Ubuntu 22.04 VM
+- BPF-LSM enabled.
+- Script installs: KubeArmor(systemd mode) + karmor CLI + KEDR
+  
+`curl -sfL https://raw.githubusercontent.com/joelwilliam2005/kubearmor-linux-edr/main/install.sh | sudo sh`
+
+## Activate BPF-LSM
+- `sudo nano /etc/default/grub`
+- Find line: `GRUB_CMDLINE_LINUX=""`
+- Change to: `GRUB_CMDLINE_LINUX="lsm=lockdown,capability,landlock,yama,apparmor,bpf"`
+- `sudo update-grub`
+- `sudo reboot`
+- Verify: `cat /sys/kernel/security/lsm` and `sudo karmor probe`
       
