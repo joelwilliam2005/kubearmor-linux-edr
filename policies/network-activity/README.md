@@ -15,11 +15,13 @@
 
 ## Network Socket Listen
 
-- It cannot directly monitor socket listen.
+- It cannot directly monitor socket listen. 
 - It can partially cover this by auditing/blocking socket listening tools.
 
 - Audit: `audit-socket-listen-commands.yaml`
 - Block: `block-socket-listen-commands.yaml`
+
+- Auditing `syscall: listen` doesn't work, might be due to lack of support of syscall, as kubearmor is running in systemd mode.
 
 ## DNS Query
 
