@@ -22,7 +22,7 @@
 |  | User Account Modified | Partial |
 |  | User Account Deleted | Partial |
 | [Driver/Module Activity](./policies/driver-module-activity/README.md) | Driver Load | Partial |
-| Access Activity | Raw Access Read | Partial |
+| [Access Activity](./policies/access-activity/README.md) | Raw Access Read | Partial |
 |  | Process Access | Partial |
 | Process Tampering Activity | Process Tampering | Partial |
 | [Service Activity](./policies/service-activity/README.md) | Service Creation | Full |
