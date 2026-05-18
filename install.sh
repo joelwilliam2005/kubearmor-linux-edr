@@ -21,4 +21,5 @@ sudo chmod +x /usr/local/bin/kedr
 
 echo ""
 echo "Installation Complete."
-echo "Run 'kedr' to start monitoring"
+echo "Policies are in /opt/kubearmor-linux-edr/policies/"
+echo "Run 'kedr' to start monitoring."
