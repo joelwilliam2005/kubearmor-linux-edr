@@ -13,5 +13,12 @@ curl -sfL http://get.kubearmor.io/ | sudo sh -s -- -b /usr/local/bin
 
 git clone https://github.com/joelwilliam2005/kubearmor-linux-edr $INSTALL_DIR
 
-chmod +x $INSTALL_DIR/kedr
-ln -s $INSTALL_DIR/kedr /usr/local/bin/kedr
+cat << 'EOF' | sudo tee /usr/local/bin/kedr
+#!/bin/bash
+sudo karmor logs --gRPC=localhost:32767 --logFilter=policy | python3 /opt/kubearmor-linux-edr/kedr.py
+EOF
+sudo chmod +x /usr/local/bin/kedr
+
+echo ""
+echo "Installation Complete."
+echo "Run 'kedr' to start monitoring"
