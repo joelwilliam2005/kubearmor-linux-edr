@@ -1,6 +1,6 @@
 # User Activity
 
-KubeArmor cannot directly monitor user activity, but it can partially cover it using process execution telemetry.
+KubeArmor cannot directly monitor user activity, but it can partially cover it using process execution and file operation telemetry.
 
 ## User Logon
 
