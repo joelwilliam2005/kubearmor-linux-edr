@@ -4,7 +4,7 @@
 ## Installation -
 
 - Tested on Ubuntu 22.04 VM with BPF-LSM enabled.
-- Script installs: KubeArmor(systemd mode) + karmor CLI + KEDR
+- Script installs: KubeArmor (systemd mode) + karmor CLI + KEDR + some dependencies
   
 `curl -sfL https://raw.githubusercontent.com/joelwilliam2005/kubearmor-linux-edr/main/install.sh | sudo sh`
 
