@@ -1,0 +1,15 @@
+apiVersion: security.kubearmor.com/v1
+kind: KubeArmorHostPolicy
+metadata:
+  name: detect-process-access-and-tampering-tools
+spec:
+  message: "Alert: Process Access and Tampering Tool Detected"
+  nodeSelector:
+    matchLabels:
+      kubearmor.io/hostname: "*"
+  process:
+    matchPaths:
+      - path: /usr/bin/gdb
+      - path: /usr/bin/strace
+      - path: /usr/bin/ltrace
+    action: Audit

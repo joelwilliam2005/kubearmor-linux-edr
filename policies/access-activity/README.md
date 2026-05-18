@@ -13,4 +13,6 @@
 
 - It can monitor low level processes. However there is a large number of internal processes interactions happening constantly in Linux, that make suspicious process access detection very hard.
 
-- Partial process access activity can be covered by monitoring execution of related tools like `gdb` `strace` `ltrace`
+- Partial process access activity can be covered by monitoring execution of related tools.
+
+- Audit: `detect-process-access-and-tampering-tools.yaml`
