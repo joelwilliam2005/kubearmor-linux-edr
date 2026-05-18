@@ -1,6 +1,49 @@
-# KEDR
-## KubeArmor based Linux EDR (Endpoint Detection and Response) Solution
+# KEDR 
+### KubeArmor based Linux EDR (Endpoint Detection and Response) Solution
 
+## Installation -
+
+- Tested on Ubuntu 22.04 VM
+- BPF-LSM enabled.
+- Script installs: KubeArmor(systemd mode) + karmor CLI + KEDR
+  
+`curl -sfL https://raw.githubusercontent.com/joelwilliam2005/kubearmor-linux-edr/main/install.sh | sudo sh`
+
+## Activate BPF-LSM -
+- Edit: `/etc/default/grub`
+- Find line: `GRUB_CMDLINE_LINUX=""`
+- Change to: `GRUB_CMDLINE_LINUX="lsm=lockdown,capability,landlock,yama,apparmor,bpf"`
+- `sudo update-grub`
+- `sudo reboot`
+- Verify: `cat /sys/kernel/security/lsm` and `sudo karmor probe`
+
+## Usage -
+
+Shell A:
+```
+joelw@jw-ubuntu-server-vm:~$ karmor vm policy add /opt/kubearmor-linux-edr/policies/process-activity/process-creation/audit/detect-system-info-discovery.yaml 
+Policy Applied 
+joelw@jw-ubuntu-server-vm:~$ kedr
+Created a gRPC client (localhost:32767)
+Checked the liveness of the gRPC server
+Started to watch alerts
+
+[#1] 10:20:26 Alert: Suspicious Process Created - System Information discovery       [Audit][Passed]
+     bash ─▶ uptime
+     Resource: /usr/bin/uptime
+     
+
+```
+
+Shell B:
+
+```
+joelw@jw-ubuntu-server-vm:~$ uptime
+ 10:20:26 up 7 min,  3 users,  load average: 0.00, 0.00, 0.00
+joelw@jw-ubuntu-server-vm:~$ _
+
+```
+      
 ### Support Table -
 | Telemetry Feature Category | Sub-Category | KubeArmor Support Status |
 |---|---|---|
@@ -43,20 +86,3 @@ Tested KEDR against multiple Linux attack simulations from the MITRE ATT&CK fram
 - [exec-linpeas](./ttp-bench-results/exec-linpeas.md)
 - [exec-netcat-listen](./ttp-bench-results/exec-netcat-listen.md)
 - [exec-python-reverse-shell](./ttp-bench-results/exec-python-reverse-shell.md)
-
-## Installation
-
-- Tested on Ubuntu 22.04 VM
-- BPF-LSM enabled.
-- Script installs: KubeArmor(systemd mode) + karmor CLI + KEDR
-  
-`curl -sfL https://raw.githubusercontent.com/joelwilliam2005/kubearmor-linux-edr/main/install.sh | sudo sh`
-
-## Activate BPF-LSM
-- Edit: `/etc/default/grub`
-- Find line: `GRUB_CMDLINE_LINUX=""`
-- Change to: `GRUB_CMDLINE_LINUX="lsm=lockdown,capability,landlock,yama,apparmor,bpf"`
-- `sudo update-grub`
-- `sudo reboot`
-- Verify: `cat /sys/kernel/security/lsm` and `sudo karmor probe`
-      
