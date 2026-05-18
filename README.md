@@ -3,8 +3,7 @@
 
 ## Installation -
 
-- Tested on Ubuntu 22.04 VM
-- BPF-LSM enabled.
+- Tested on Ubuntu 22.04 VM with BPF-LSM enabled.
 - Script installs: KubeArmor(systemd mode) + karmor CLI + KEDR
   
 `curl -sfL https://raw.githubusercontent.com/joelwilliam2005/kubearmor-linux-edr/main/install.sh | sudo sh`
