@@ -53,7 +53,7 @@ Tested KEDR against multiple Linux attack simulations from the MITRE ATT&CK fram
 `curl -sfL https://raw.githubusercontent.com/joelwilliam2005/kubearmor-linux-edr/main/install.sh | sudo sh`
 
 ## Activate BPF-LSM
-- `sudo nano /etc/default/grub`
+- Edit: `/etc/default/grub`
 - Find line: `GRUB_CMDLINE_LINUX=""`
 - Change to: `GRUB_CMDLINE_LINUX="lsm=lockdown,capability,landlock,yama,apparmor,bpf"`
 - `sudo update-grub`
